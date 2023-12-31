@@ -5,13 +5,23 @@
   </p>
 
   <p>
+    <strong>Time:</strong>
+    <%= jornalentry.created_at %>
+  </p>
+
+  <p>
     <strong>List of food:</strong>
     <%= jornalentry.list_of_food %>
   </p>
 
   <p>
-    <strong>Glucose mg dl:</strong>
+    <strong>Glucose mg/dL:</strong>
     <%= jornalentry.glucose_mg_dl %>
+  </p>
+
+  <p>
+    <strong>Glucose mmol/L:</strong>
+    <%= (jornalentry.glucose_mg_dl / 18).to_f %>
   </p>
 
   <p>
