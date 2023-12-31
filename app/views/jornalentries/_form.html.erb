@@ -1,0 +1,37 @@
+<%= form_with(model: jornalentry) do |form| %>
+  <% if jornalentry.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(jornalentry.errors.count, "error") %> prohibited this jornalentry from being saved:</h2>
+
+      <ul>
+        <% jornalentry.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :list_of_food, style: "display: block" %>
+    <%= form.text_field :list_of_food %>
+  </div>
+
+  <div>
+    <%= form.label :glucose_mg_dl, style: "display: block" %>
+    <%= form.number_field :glucose_mg_dl %>
+  </div>
+
+  <div>
+    <%= form.label :notes, style: "display: block" %>
+    <%= form.text_field :notes %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

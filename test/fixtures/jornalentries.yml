@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2023-12-30
+  list_of_food: MyString
+  glucose_mg_dl: 1
+  notes: MyString
+
+two:
+  date: 2023-12-30
+  list_of_food: MyString
+  glucose_mg_dl: 1
+  notes: MyString

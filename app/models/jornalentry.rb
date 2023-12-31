@@ -1,0 +1,2 @@
+class Jornalentry < ApplicationRecord
+end
