@@ -1,0 +1,7 @@
+{
+  "name": "rails7_simple_jornal_app",
+  "version": "1.0.0",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2"
+  }
+}

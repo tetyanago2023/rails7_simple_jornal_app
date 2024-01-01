@@ -2,9 +2,9 @@
 
 <%= render @jornalentry %>
 
-<div>
+<div data-controller="jornalentries">
   <%= link_to "Edit this jornalentry", edit_jornalentry_path(@jornalentry) %> |
   <%= link_to "Back to jornalentries", jornalentries_path %>
 
-  <%= button_to "Destroy this jornalentry", @jornalentry, method: :delete %>
+  <%= button_to "Destroy this jornalentry", @jornalentry, method: :delete, data: { action: "click->jornalentries#delete" }%>
 </div>
