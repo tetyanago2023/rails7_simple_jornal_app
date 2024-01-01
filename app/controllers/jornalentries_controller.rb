@@ -12,7 +12,8 @@ class JornalentriesController < ApplicationController
 
   # GET /jornalentries/new
   def new
-    @jornalentry = Jornalentry.new
+    # @jornalentry = Jornalentry.new
+    @jornalentry = Jornalentry.new(date: Date.today)
   end
 
   # GET /jornalentries/1/edit
