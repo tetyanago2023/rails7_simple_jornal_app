@@ -1,17 +1,15 @@
 require 'rails_helper'
 
 describe "the jornalentries CRUD feature", type: :feature do
-  before :each do
-    @jornalentry1 = create(:jornalentry)
-    @jornalentry2 = create(:jornalentry)
-  end
   # index page is accessible and jornalentries list is rendered
   it "visit index page" do
+    jornalentry1 = create(:jornalentry)
+    jornalentry2 = create(:jornalentry)
     Capybara.using_driver(:selenium_chrome_headless) do
       visit '/'
       page.save_and_open_screenshot(full: true)
-      expect(page).to have_content "#{@jornalentry1.list_of_food}"
-      expect(page).to have_content "#{@jornalentry2.list_of_food}"
+      expect(page).to have_content "#{jornalentry1.list_of_food}"
+      expect(page).to have_content "#{jornalentry2.list_of_food}"
     end
   end
 
