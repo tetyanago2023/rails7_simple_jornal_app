@@ -14,9 +14,12 @@ describe "the jornalentries CRUD feature", type: :feature do
   end
   # index page is accessible and jornalentries list is rendered
   it "visit index page" do
-    visit '/'
-    expect(page).to have_content 'Some food_1'
-    expect(page).to have_content 'Some food_2'
+    Capybara.using_driver(:selenium_chrome_headless) do
+      visit '/'
+      page.save_and_open_screenshot(full: true)
+      expect(page).to have_content 'Some food_1'
+      expect(page).to have_content 'Some food_2'
+    end
   end
 
   #new jornalentry can be created
