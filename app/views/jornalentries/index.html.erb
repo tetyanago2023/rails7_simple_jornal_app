@@ -5,7 +5,7 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl text-teal-800">Food and Blood Glucose Diary</h1>
-    <%= link_to "New expense", new_jornalentry_path, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 block text-sm font-medium hover:bg-teal-600" %>
+    <%= link_to "New entry", new_jornalentry_path, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 block text-sm font-medium hover:bg-teal-600" %>
   </div>
 
   <div id="expenses" class="table w-full p-2 mt-2">
@@ -16,7 +16,7 @@
           <th class="min-w-40 text-middle border-r py-3 px-4 uppercase font-semibold text-sm">Date</th>
           <th class="min-w-40 text-middle border-r py-3 px-4 uppercase font-semibold text-sm">Time</th>
           <th class="min-w-40 max-w-40 text-middle border-r py-3 px-4 uppercase font-semibold text-sm">List of Food</th>
-          <th class="min-w-24 text-middle border-r py-3 px-4 uppercase font-semibold text-sm">Glucose, mg/dL</th>
+          <th class="min-w-40 text-middle border-r py-3 px-4 uppercase font-semibold text-sm">Glucose, mg/dL</th>
           <th class="text-middle border-r py-3 px-4 uppercase font-semibold text-sm">Glucose, mmol/L</th>
           <th class="text-middle border-r py-3 px-4 uppercase font-semibold text-sm">Notes</th>
           <th class="text-middle border-r py-3 px-4 uppercase font-semibold text-sm">Action</th>
@@ -29,17 +29,3 @@
     <% end %>
   </div>
 </div>
-
-
-<!--<h1>Food and Blood Glucose Diary</h1>-->
-
-<!--<div id="jornalentries">-->
-  <%# @jornalentries.each do |jornalentry| %>
-    <%#= render jornalentry %>
-<!--    <p>-->
-      <%#= link_to "Show this jornalentry", jornalentry %>
-<!--    </p>-->
-  <%# end %>
-<!--</div>-->
-
-<%#= link_to "New jornalentry", new_jornalentry_path %>
