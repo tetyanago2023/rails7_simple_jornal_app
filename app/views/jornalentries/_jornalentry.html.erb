@@ -1,32 +1,12 @@
-<div id="<%= dom_id jornalentry %>">
-  <p>
-    <strong>Date:</strong>
-    <%= jornalentry.date %>
-  </p>
-
-  <p>
-    <strong>Time:</strong>
-    <%= jornalentry.created_at %>
-  </p>
-
-  <p>
-    <strong>List of food:</strong>
-    <%= jornalentry.list_of_food %>
-  </p>
-
-  <p>
-    <strong>Glucose mg/dL:</strong>
-    <%= jornalentry.glucose_mg_dl %>
-  </p>
-
-  <p>
-    <strong>Glucose mmol/L:</strong>
-    <%= (jornalentry.glucose_mg_dl / 18).to_f %>
-  </p>
-
-  <p>
-    <strong>Notes:</strong>
-    <%= jornalentry.notes %>
-  </p>
-
-</div>
+<tr id="<%= dom_id jornalentry %>" class="bg-gray-50">
+  <td class="text-center border-r border-b py-3 px-4"><%= jornalentry.date %></td>
+  <td class="min-w-40 max-w-40 text-left border-r border-b py-3 px-4"><%= jornalentry.created_at %></td>
+  <td class="min-w-24 text-center border-r border-b p-3"><%= jornalentry.list_of_food %></div></td>
+  <td class="text-right border-r border-b py-3 px-4"><%= jornalentry.glucose_mg_dl %></td>
+  <td class="min-w-64 text-left border-r border-b py-3 px-4"><%= (jornalentry.glucose_mg_dl / 18).to_f %></td>
+  <td class="min-w-64 text-left border-r border-b py-3 px-4"><%= jornalentry.notes %></td>
+  <td class="text-center border-r border-b py-3 px-4 flex justify-between items-center">
+    <%= link_to "Edit jornalentry", edit_jornalentry_path(jornalentry), class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
+    <%= button_to "Delete jornalentry", jornalentry_path(jornalentry), method: :delete, data: {turbo_confirm: 'Are you sure?'}, class: "rounded-lg bg-teal-800 border py-3 ml-2 px-3 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
+  </td>
+</tr>
