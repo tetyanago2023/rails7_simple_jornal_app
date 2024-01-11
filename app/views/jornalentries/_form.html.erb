@@ -17,6 +17,11 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :time, style: "display: block" %>
+    <%= form.time_field :time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :list_of_food, style: "display: block" %>
     <%= form.text_area :list_of_food, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
   </div>
