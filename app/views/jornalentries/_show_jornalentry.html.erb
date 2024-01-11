@@ -1,0 +1,38 @@
+<div id="<%= dom_id @jornalentry %>">
+  <h1 class="font-bold text-4xl text-teal-800">Journalentry</h1>
+  <p class="my-5 flex justify-between items-center">
+    <strong class="block font-medium mb-1">Date:</strong>
+    <%= @jornalentry.date %>
+  </p>
+
+  <p class="my-5 flex justify-between items-center">
+    <strong class="block font-medium mb-1">Time:</strong>
+    <%= @jornalentry.created_at.strftime("%H:%M") %>
+  </p>
+
+  <p class="my-5 flex justify-between items-center">
+    <strong class="block font-medium mb-1">List of Food:</strong>
+    <%= @jornalentry.list_of_food %>
+  </p>
+
+  <p class="my-5 flex justify-between items-center">
+    <strong class="block font-medium mb-1">Glucose, mg/dL:</strong>
+    <%= @jornalentry.glucose_mg_dl %>
+  </p>
+
+  <p class="my-5 flex justify-between items-center">
+    <strong class="block font-medium mb-1">Glucose, mmol/L:</strong>
+    <%= (@jornalentry.glucose_mg_dl / 18).to_f %>
+  </p>
+
+  <p class="my-5 flex justify-between items-center">
+    <strong class="block font-medium mb-1">Note:</strong>
+    <%= @jornalentry.notes %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this journalentry", @jornalentry, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this journalentry", edit_jornalentry_path(@jornalentry), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

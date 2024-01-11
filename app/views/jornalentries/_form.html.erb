@@ -1,37 +1,37 @@
-<%= form_with(model: jornalentry) do |form| %>
-  <% if jornalentry.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(jornalentry.errors.count, "error") %> prohibited this jornalentry from being saved:</h2>
+<%= form_with(model: @jornalentry, class: "contents") do |form| %>
+  <% if @jornalentry.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(@jornalentry.errors.count, "error") %> prohibited this jornalentry from being saved:</h2>
 
       <ul>
-        <% jornalentry.errors.each do |error| %>
+        <% @jornalentry.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
+  <div class="my-5">
     <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
+    <%= form.date_field :date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
   </div>
 
-  <div>
+  <div class="my-5">
     <%= form.label :list_of_food, style: "display: block" %>
-    <%= form.text_area :list_of_food %>
+    <%= form.text_area :list_of_food, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
   </div>
 
-  <div>
+  <div class="my-5">
     <%= form.label :glucose_mg_dl, style: "display: block" %>
-    <%= form.number_field :glucose_mg_dl %>
+    <%= form.number_field :glucose_mg_dl, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
   </div>
 
-  <div>
+  <div class="my-5">
     <%= form.label :notes, style: "display: block" %>
-    <%= form.text_area :notes %>
+    <%= form.text_area :notes, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="inline">
+    <%= form.submit "Create journalentry", class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600" %>
   </div>
 <% end %>

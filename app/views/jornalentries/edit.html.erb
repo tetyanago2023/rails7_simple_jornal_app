@@ -1,10 +1,8 @@
-<h1>Editing jornalentry</h1>
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl text-teal-800">Editing journalentry</h1>
 
-<%= render "form", jornalentry: @jornalentry %>
+  <%= render "form", jornalentry: @jornalentry %>
 
-<br>
-
-<div>
-  <%= link_to "Show this jornalentry", @jornalentry %> |
-  <%= link_to "Back to jornalentries", jornalentries_path %>
+  <%= link_to "Show this journalentry", @jornalentry, class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
+  <%= link_to "Back to journalentries", jornalentries_path, class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
 </div>

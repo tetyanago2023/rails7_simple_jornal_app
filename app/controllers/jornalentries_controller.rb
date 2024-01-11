@@ -26,7 +26,7 @@ class JornalentriesController < ApplicationController
 
     respond_to do |format|
       if @jornalentry.save
-        format.html { redirect_to jornalentry_url(@jornalentry), notice: "Jornalentry was successfully created." }
+        format.html { redirect_to jornalentry_url(@jornalentry), notice: "Journalentry was successfully created." }
         format.json { render :show, status: :created, location: @jornalentry }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class JornalentriesController < ApplicationController
   def update
     respond_to do |format|
       if @jornalentry.update(jornalentry_params)
-        format.html { redirect_to jornalentry_url(@jornalentry), notice: "Jornalentry was successfully updated." }
+        format.html { redirect_to jornalentry_url(@jornalentry), notice: "Journalentry was successfully updated." }
         format.json { render :show, status: :ok, location: @jornalentry }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class JornalentriesController < ApplicationController
     @jornalentry.destroy!
 
     respond_to do |format|
-      format.html { redirect_to jornalentries_url, notice: "Jornalentry was successfully destroyed." }
+      format.html { redirect_to jornalentries_url, notice: "Journalentry was successfully destroyed." }
       format.json { head :no_content }
     end
   end

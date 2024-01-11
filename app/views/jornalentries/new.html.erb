@@ -1,9 +1,7 @@
-<h1>New jornalentry</h1>
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl text-teal-800">New journalentry</h1>
 
-<%= render "form", jornalentry: @jornalentry %>
+  <%= render "form", jornalentry: @jornalentry %>
 
-<br>
-
-<div>
-  <%= link_to "Back to jornalentries", jornalentries_path %>
+  <%= link_to "Back to journalentries", jornalentries_path, class: "ml-2 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium hover:bg-teal-600" %>
 </div>

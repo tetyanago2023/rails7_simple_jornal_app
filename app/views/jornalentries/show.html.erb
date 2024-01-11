@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
 
-<%= render @jornalentry %>
+    <%= render "show_jornalentry", jornalentry: @jornalentry %>
 
-<div data-controller="jornalentries">
-  <%= link_to "Edit this jornalentry", edit_jornalentry_path(@jornalentry) %> |
-  <%= link_to "Back to jornalentries", jornalentries_path %>
-
-  <%= button_to "Destroy this jornalentry", @jornalentry, method: :delete, data: { action: "click->jornalentries#delete" }%>
+    <%= link_to "Edit this journalentry", edit_jornalentry_path(@jornalentry), class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to "Destroy this journalentry", jornalentry_path(@jornalentry), method: :delete, class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
+    </div>
+    <%= link_to "Back to journalentries", jornalentries_path, class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
+  </div>
 </div>
