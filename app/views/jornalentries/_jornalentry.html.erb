@@ -3,7 +3,7 @@
   <td class="text-center border-r border-b py-3 px-4"><%= jornalentry.time.strftime('%H:%M') %></td>
   <td class="min-w-64 text-left border-r border-b p-3"><%= jornalentry.list_of_food %></div></td>
   <td class="text-center border-r border-b py-3 px-4"><%= jornalentry.glucose_mg_dl %></td>
-  <td class="text-center border-r border-b py-3 px-4"><%= (jornalentry.glucose_mg_dl / 18).to_f %></td>
+  <td class="text-center border-r border-b py-3 px-4"><%= (jornalentry.glucose_mg_dl / 18.0).round(2) %></td>
   <td class="min-w-64 text-left border-r border-b py-3 px-4"><%= jornalentry.notes %></td>
   <td class="text-center border-r border-b py-3 px-4 flex justify-between items-center">
     <%= link_to "Edit", edit_jornalentry_path(jornalentry), class: "rounded-lg min-w-32 bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>

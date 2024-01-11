@@ -22,7 +22,7 @@
 
   <p class="my-5 flex justify-between items-center">
     <strong class="block font-medium mb-1">Glucose, mmol/L:</strong>
-    <%= (@jornalentry.glucose_mg_dl / 18).to_f %>
+    <%= (@jornalentry.glucose_mg_dl / 18.0).round(2) %>
   </p>
 
   <p class="my-5 flex justify-between items-center">
