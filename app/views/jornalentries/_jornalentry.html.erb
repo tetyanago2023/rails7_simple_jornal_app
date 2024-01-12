@@ -1,6 +1,6 @@
 <tr id="<%= dom_id jornalentry %>" class="bg-gray-50">
   <td class="border-r border-b py-3 px-4"><%= jornalentry.date %></td>
-  <td class="text-center border-r border-b py-3 px-4"><%= jornalentry.time.strftime('%H:%M') %></td>
+  <td class="text-center border-r border-b py-3 px-4"><%= jornalentry.tested_at.strftime('%H:%M') %></td>
   <td class="min-w-64 text-left border-r border-b p-3"><%= jornalentry.list_of_food %></div></td>
   <td class="text-center border-r border-b py-3 px-4"><%= jornalentry.glucose_mg_dl %></td>
   <td class="text-center border-r border-b py-3 px-4"><%= (jornalentry.glucose_mg_dl / 18.0).round(2) %></td>
