@@ -35,7 +35,6 @@ describe "the jornalentries CRUD feature", type: :feature do
       visit "jornalentries/#{jornalentry.id}"
       click_on "Edit this journalentry", match: :first
       fill_in "List of food", with: "On empty stomach"
-      # page.save_and_open_screenshot(full: true)
       click_on "Update Jornalentry"
       assert_text "Journalentry was successfully updated"
       page.save_and_open_screenshot(full: true)
@@ -48,7 +47,6 @@ describe "the jornalentries CRUD feature", type: :feature do
     Capybara.using_driver(:selenium_chrome_headless) do
       visit "jornalentries/#{jornalentry.id}"
       click_on "Destroy this journalentry", match: :first
-      # accept_alert
       assert_text "Journalentry was successfully destroyed"
       page.save_and_open_screenshot(full: true)
     end
