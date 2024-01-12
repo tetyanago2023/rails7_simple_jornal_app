@@ -18,11 +18,12 @@ describe "the jornalentries CRUD feature", type: :feature do
       Capybara.using_driver(:selenium_chrome_headless) do
         visit 'jornalentries/new'
         fill_in "Date", with: Date.yesterday
+        fill_in "Tested at", with: Time.now
         fill_in "Glucose mg dl", with: 120
         fill_in "List of food", with: "bread, turkey, cheese, pecan, green tea"
         fill_in "Notes", with: "on empty stomach"
         click_on "Create Jornalentry"
-        assert_text "Jornalentry was successfully created"
+        assert_text "Journalentry was successfully created"
         page.save_and_open_screenshot(full: true)
       end
     end
@@ -32,11 +33,11 @@ describe "the jornalentries CRUD feature", type: :feature do
     jornalentry = create(:jornalentry)
     Capybara.using_driver(:selenium_chrome_headless) do
       visit "jornalentries/#{jornalentry.id}"
-      click_on "Edit this jornalentry", match: :first
+      click_on "Edit this journalentry", match: :first
       fill_in "List of food", with: "On empty stomach"
       # page.save_and_open_screenshot(full: true)
       click_on "Update Jornalentry"
-      assert_text "Jornalentry was successfully updated"
+      assert_text "Journalentry was successfully updated"
       page.save_and_open_screenshot(full: true)
     end
   end
@@ -46,9 +47,9 @@ describe "the jornalentries CRUD feature", type: :feature do
     jornalentry = create(:jornalentry)
     Capybara.using_driver(:selenium_chrome_headless) do
       visit "jornalentries/#{jornalentry.id}"
-      click_on "Destroy this jornalentry", match: :first
-      accept_alert
-      assert_text "Jornalentry was successfully destroyed"
+      click_on "Destroy this journalentry", match: :first
+      # accept_alert
+      assert_text "Journalentry was successfully destroyed"
       page.save_and_open_screenshot(full: true)
     end
   end
