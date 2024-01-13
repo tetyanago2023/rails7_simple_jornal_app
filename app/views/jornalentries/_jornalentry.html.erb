@@ -1,12 +1,12 @@
 <tr id="<%= dom_id jornalentry %>" class="bg-gray-50">
-  <td class="border-r border-b py-3 px-4"><%= jornalentry.date %></td>
-  <td class="text-center border-r border-b py-3 px-4"><%= jornalentry.tested_at.strftime('%H:%M') %></td>
-  <td class="min-w-64 text-left border-r border-b p-3"><%= jornalentry.list_of_food %></div></td>
-  <td class="text-center border-r border-b py-3 px-4"><%= jornalentry.glucose_mg_dl %></td>
-  <td class="text-center border-r border-b py-3 px-4"><%= (jornalentry.glucose_mg_dl / 18.0).round(2) %></td>
-  <td class="min-w-64 text-left border-r border-b py-3 px-4"><%= jornalentry.notes %></td>
-  <td class="text-center border-r border-b py-3 px-4 flex justify-between items-center">
-    <%= link_to "Edit", edit_jornalentry_path(jornalentry), class: "rounded-lg min-w-32 bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
-    <%= button_to "Delete", jornalentry_path(jornalentry), method: :delete, data: {turbo_confirm: 'Are you sure?'}, class: "rounded-lg min-w-32 bg-teal-800 border py-3 ml-2 px-3 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
+  <td class="border-r border-b py-1 px-4"><%= jornalentry.date %></td>
+  <td class="text-center border-r border-b py-1 px-4"><%= jornalentry.tested_at.strftime('%H:%M') %></td>
+  <td class="min-w-64 text-left border-r border-b p-1"><%= jornalentry.list_of_food %></div></td>
+  <td class="text-center border-r border-b py-1 px-4"><%= jornalentry.glucose_mg_dl %></td>
+  <td class="text-center border-r border-b py-1 px-4"><%= (jornalentry.glucose_mg_dl / 18.0).round(2) %></td>
+  <td class="min-w-64 text-left border-r border-b py-1 px-4"><%= jornalentry.notes.truncate(30) %></td>
+  <td class="text-center border-r border-b py-1 px-4 flex justify-between items-center">
+    <%= link_to "Edit", edit_jornalentry_path(jornalentry), class: "rounded-lg min-w-24 bg-teal-800 border py-1 px-1 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
+    <%= button_to "Delete", jornalentry_path(jornalentry), method: :delete, data: {turbo_confirm: 'Are you sure?'}, class: "rounded-lg min-w-24 bg-teal-800 border py-1 px-1 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
   </td>
 </tr>

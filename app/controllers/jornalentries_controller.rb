@@ -3,7 +3,7 @@ class JornalentriesController < ApplicationController
 
   # GET /jornalentries or /jornalentries.json
   def index
-    @jornalentries = Jornalentry.all
+    @jornalentries = Jornalentry.order(date: :asc).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /jornalentries/1 or /jornalentries/1.json
