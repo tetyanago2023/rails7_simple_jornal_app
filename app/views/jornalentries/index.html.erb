@@ -15,8 +15,8 @@
       <table class="w-full border-b bg-gray-100">
         <thead class="bg-teal-800 text-amber-400">
         <tr>
-          <th class="min-w-40 text-middle border-r py-1 px-4 uppercase font-semibold text-sm">Date</th>
-          <th class="min-w-40 text-middle border-r py-1 px-4 uppercase font-semibold text-sm">Tested at</th>
+          <th class="min-w-24 text-middle border-r py-1 px-4 uppercase font-semibold text-sm">Date</th>
+          <th class="min-w-24 text-middle border-r py-1 px-4 uppercase font-semibold text-sm">Tested at</th>
           <th class="min-w-40 max-w-40 text-middle border-r py-1 px-4 uppercase font-semibold text-sm">List of Food</th>
           <th class="min-w-40 text-middle border-r py-1 px-4 uppercase font-semibold text-sm">Glucose, mg/dL</th>
           <th class="text-middle border-r py-1 px-4 uppercase font-semibold text-sm">Glucose, mmol/L</th>
@@ -29,5 +29,6 @@
         </tbody>
       </table>
     <% end %>
+    <%= will_paginate @jornalentries, class: "text-teal-800 font-bold"%>
   </div>
 </div>
