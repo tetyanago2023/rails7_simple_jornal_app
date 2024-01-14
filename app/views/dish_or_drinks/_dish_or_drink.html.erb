@@ -1,0 +1,17 @@
+<div id="<%= dom_id dish_or_drink %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= dish_or_drink.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ingredients:</strong>
+    <%= dish_or_drink.ingredients %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this dish or drink", dish_or_drink, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this dish or drink", edit_dish_or_drink_path(dish_or_drink), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

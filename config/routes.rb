@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dish_or_drinks
   root "jornalentries#index"
   resources :jornalentries
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
