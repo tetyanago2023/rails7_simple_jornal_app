@@ -4,32 +4,32 @@
     <%= link_to "New entry", new_jornalentry_path, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 block text-sm font-medium hover:bg-teal-600" %>
   </div>
   <p class="my-5 flex justify-between items-center">
-    <strong class="block font-medium mb-1">Date:</strong>
+    <strong class="block font-bold text-teal-800 mb-1">Date:</strong>
     <%= @jornalentry.date %>
   </p>
 
   <p class="my-5 flex justify-between items-center">
-    <strong class="block font-medium mb-1">Tested at:</strong>
+    <strong class="block font-bold text-teal-800 mb-1">Tested at:</strong>
     <%= @jornalentry.tested_at.strftime('%H:%M') %>
   </p>
 
   <p class="my-5 flex justify-between items-center">
-    <strong class="block font-medium mb-1">List of Food:</strong>
+    <strong class="block font-bold text-teal-800 mb-1">List of Food:</strong>
     <%= @jornalentry.list_of_food %>
   </p>
 
   <p class="my-5 flex justify-between items-center">
-    <strong class="block font-medium mb-1">Glucose, mg/dL:</strong>
+    <strong class="block font-bold text-teal-800 mb-1">Glucose, mg/dL:</strong>
     <%= @jornalentry.glucose_mg_dl %>
   </p>
 
   <p class="my-5 flex justify-between items-center">
-    <strong class="block font-medium mb-1">Glucose, mmol/L:</strong>
+    <strong class="block font-bold text-teal-800 mb-1">Glucose, mmol/L:</strong>
     <%= (@jornalentry.glucose_mg_dl / 18.0).round(2) %>
   </p>
 
   <p class="my-5 flex justify-between items-center">
-    <strong class="block font-medium mb-1">Note:</strong>
+    <strong class="block font-bold text-teal-800 mb-1">Note:</strong>
     <%= @jornalentry.notes %>
   </p>
 </div>
