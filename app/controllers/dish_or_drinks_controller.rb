@@ -3,7 +3,7 @@ class DishOrDrinksController < ApplicationController
 
   # GET /dish_or_drinks or /dish_or_drinks.json
   def index
-    @dish_or_drinks = DishOrDrink.all
+    @dish_or_drinks = DishOrDrink.all.paginate(page: params[:page], per_page: 3)
   end
 
   # GET /dish_or_drinks/1 or /dish_or_drinks/1.json
