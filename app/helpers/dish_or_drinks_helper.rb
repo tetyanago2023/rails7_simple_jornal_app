@@ -1,5 +1,5 @@
 module DishOrDrinksHelper
-  def dish_or_drink_type(dish_or_drinks)
+  def dish_or_drink_type(dish_or_drink)
     dish_or_drink_variants = {
       coffee_espresso: 'Coffee espresso',
       white_vine: 'White vine',
@@ -19,12 +19,15 @@ module DishOrDrinksHelper
       yogurt: 'Yogurt',
       milk: 'Milk',
       cheese: 'Cheese',
+      on_empty_stomach: 'On empty stomach',
+      beans: 'Beans',
+      meatballs: 'Meatballs',
 
     }
     # if dish_or_drink.present? && dish_or_drink.name.present?
-    if dish_or_drinks.present?
-      # dish_or_drink_variants[dish_or_drinks_id.to_sym]
-      dish_or_drink_variants[dish_or_drinks]
+    if dish_or_drink.present?
+      # dish_or_drink_variants[dish_or_drink_id.to_sym]
+      dish_or_drink_variants[dish_or_drink]
     else
       ' '
     end
