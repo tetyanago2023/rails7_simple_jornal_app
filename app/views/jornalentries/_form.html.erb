@@ -27,6 +27,11 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :dish_or_drinks, style: "display: block" %>
+    <%= form.select(:dish_or_drinks_id, DishOrDrink.all.map{ |dish_or_drink| [dish_or_drink.name, dish_or_drink.id] }, {}, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" }) %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :glucose_mg_dl, style: "display: block" %>
     <%= form.number_field :glucose_mg_dl, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
   </div>

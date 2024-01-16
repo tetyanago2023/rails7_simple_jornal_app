@@ -1,7 +1,9 @@
 <tr id="<%= dom_id jornalentry %>" class="bg-gray-50">
   <td class="text-center border-r border-b py-1 px-2"><%= jornalentry.date %></td>
   <td class="text-center border-r border-b py-1 px-2"><%= jornalentry.tested_at.strftime('%H:%M') %></td>
-  <td class="min-w-64 text-left border-r border-b p-1"><%= jornalentry.list_of_food.truncate(30) %></div></td>
+  <td class="min-w-64 text-left border-r border-b p-1"><%= jornalentry.list_of_food&.truncate(30) %></td>
+  <td class="min-w-64 text-left border-r border-b p-1"><%= jornalentry.dish_or_drink&.name %></div></td>
+<!--  <td class="min-w-64 text-left border-r border-b p-1"><%#=dish_or_drink_type(jornalentry.dish_or_drink.name)%></td>-->
   <td class="text-center border-r border-b py-1 px-2"><%= jornalentry.glucose_mg_dl %></td>
   <td class="text-center border-r border-b py-1 px-2"><%= (jornalentry.glucose_mg_dl / 18.0).round(1) %></td>
   <td class="min-w-64 text-left border-r border-b py-1 px-2"><%= jornalentry.notes.truncate(40) %></td>
