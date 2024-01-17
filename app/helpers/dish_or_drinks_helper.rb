@@ -26,7 +26,6 @@ module DishOrDrinksHelper
     }
     if dish_or_drink.present? && dish_or_drink.name.present?
       dish_or_drink_variants[dish_or_drink.name.to_sym]
-      # dish_or_drink_variants[dish_or_drink]
     else
       ' '
     end
