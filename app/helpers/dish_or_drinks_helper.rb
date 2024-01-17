@@ -24,10 +24,9 @@ module DishOrDrinksHelper
       meatballs: 'Meatballs',
 
     }
-    # if dish_or_drink.present? && dish_or_drink.name.present?
-    if dish_or_drink.present?
-      # dish_or_drink_variants[dish_or_drink_id.to_sym]
-      dish_or_drink_variants[dish_or_drink]
+    if dish_or_drink.present? && dish_or_drink.name.present?
+      dish_or_drink_variants[dish_or_drink.name.to_sym]
+      # dish_or_drink_variants[dish_or_drink]
     else
       ' '
     end
