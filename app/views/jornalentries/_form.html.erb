@@ -26,10 +26,15 @@
     <%= form.text_area :list_of_food, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :dish_or_drink, style: "display: block" %>
+<!--  <div class="my-5">-->
+    <%#= form.label :dish_or_drink, style: "display: block" %>
     <%#= form.select(:dish_or_drink_id, DishOrDrink.all.map{ |dish_or_drink| [dish_or_drink.name, dish_or_drink.id] }.sort, {include_blank: 'Please select'}, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" }) %>
-    <%= form.select(:dish_or_drink_id, DishOrDrink.all.map{ |dish_or_drink| [dish_or_drink.name, dish_or_drink.id] }.sort, { :multiple => true, :size => 5 }, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" }) %>
+    <%#= form.select(:dish_or_drink_id, DishOrDrink.all.map{ |dish_or_drink| [dish_or_drink.name, dish_or_drink.id] }.sort, { :multiple => true, :size => 5 }, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" }) %>
+<!--  </div>-->
+
+  <div class="my-5">
+    <%= form.label :dish_or_drink_id, style: "display: block" %>
+    <%= form.select(:dish_or_drink_id, DishOrDrink.pluck(:name, :id).sort , { :multiple => true, data: {controller: 'slim'} }, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" }) %>
   </div>
 
   <div class="my-5">
