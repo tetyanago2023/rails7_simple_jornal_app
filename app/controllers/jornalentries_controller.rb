@@ -66,6 +66,7 @@ class JornalentriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def jornalentry_params
-      params.require(:jornalentry).permit(:date, :list_of_food, :glucose_mg_dl, :notes, :tested_at, :dish_or_drink_id)
+      # params.require(:jornalentry).permit(:date, :list_of_food, :glucose_mg_dl, :notes, :tested_at, :dish_or_drink_id)
+      params.require(:jornalentry).permit(:date, :list_of_food, :glucose_mg_dl, :notes, :tested_at, dish_or_drink_ids: [])
     end
 end
