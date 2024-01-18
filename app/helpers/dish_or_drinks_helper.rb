@@ -22,6 +22,9 @@ module DishOrDrinksHelper
       on_empty_stomach: 'On empty stomach',
       beans: 'Beans',
       meatballs: 'Meatballs',
+      tomatoes: 'Tomatoes',
+      cucumbers: 'Cucumbers',
+      rucola: 'Rucola',
 
     }
     if dish_or_drink.present? && dish_or_drink.name.present?
