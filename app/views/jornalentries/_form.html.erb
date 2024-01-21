@@ -34,7 +34,9 @@
 
   <div class="my-5">
     <%= form.label :dish_or_drink_id, style: "display: block" %>
-    <%= form.select(:dish_or_drink_id, DishOrDrink.pluck(:name, :id).sort , { :multiple => true, data: {controller: 'slim'} }, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" }) %>
+    <%#= form.select(:dish_or_drink_id, DishOrDrink.pluck(:name, :id).sort , { :multiple => true, data: {controller: 'slim'} }, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" }) %>
+    <%#= form.select(:dish_or_drink_id, DishOrDrink.pluck(:name, :id).sort, {include_blank: true}, {data: {controller: 'slim'}) %>
+    <%= form.select :dish_or_drink_id, DishOrDrink.pluck(:name, :id), {include_blank: true}, {data: {controller: 'slim'}} %>
   </div>
 
   <div class="my-5">

@@ -1,3 +1,3 @@
 class DishOrDrink < ApplicationRecord
-  has_many :jornalentries
+  belongs_to :jornalentry
 end
