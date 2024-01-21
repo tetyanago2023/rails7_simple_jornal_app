@@ -1,3 +1,7 @@
+# class DishOrDrink < ApplicationRecord
+#   belongs_to :jornalentry
+# end
+
 class DishOrDrink < ApplicationRecord
-  belongs_to :jornalentry
+  has_many :jornalentries
 end
