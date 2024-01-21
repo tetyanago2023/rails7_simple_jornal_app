@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_21_031429) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_21_072123) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_21_031429) do
     t.time "tested_at"
     t.bigint "dish_or_drink_id"
     t.index ["dish_or_drink_id"], name: "index_jornalentries_on_dish_or_drink_id"
+  end
+
+  create_table "jornalentries_dish_or_drinks", id: false, force: :cascade do |t|
+    t.bigint "jornalentry_id", null: false
+    t.bigint "dish_or_drink_id", null: false
+    t.index ["dish_or_drink_id", "jornalentry_id"], name: "idx_on_dish_or_drink_id_jornalentry_id_074fa54483"
+    t.index ["dish_or_drink_id"], name: "index_jornalentries_dish_or_drinks_on_dish_or_drink_id"
+    t.index ["jornalentry_id", "dish_or_drink_id"], name: "idx_on_jornalentry_id_dish_or_drink_id_3a0db0085c", unique: true
+    t.index ["jornalentry_id"], name: "index_jornalentries_dish_or_drinks_on_jornalentry_id"
   end
 
   add_foreign_key "jornalentries", "dish_or_drinks"

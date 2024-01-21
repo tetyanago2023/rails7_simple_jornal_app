@@ -20,8 +20,11 @@
 
   <p class="my-5 flex justify-between items-center">
     <strong class="block font-bold text-teal-800 mb-1">Dish or Drink:</strong>
-    <%#= @jornalentry.dish_or_drink_id %>
-    <%= @jornalentry.dish_or_drink.name if @jornalentry.dish_or_drink %>
+    <% if @jornalentry.dish_or_drinks.any? %>
+      <%= @jornalentry.dish_or_drinks.pluck(:name).join(', ') %>
+    <% else %>
+      No Dish or Drink selected
+    <% end %>
   </p>
 
   <p class="my-5 flex justify-between items-center">

@@ -1,6 +1,3 @@
-# class Jornalentry < ApplicationRecord
-# end
-
 class Jornalentry < ApplicationRecord
-  belongs_to :dish_or_drink
+  has_and_belongs_to_many :dish_or_drinks, join_table: 'jornalentries_dish_or_drinks'
 end
