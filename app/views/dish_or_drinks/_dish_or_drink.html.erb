@@ -1,23 +1,30 @@
-<div id="<%= dom_id dish_or_drink%>">
-  <p class="my-2 flex justify-between items-center">
-    <strong class="block font-bold text-teal-800 mb-1">Name:</strong>
-    <strong><%= dish_or_drink.name %></strong>
-  </p>
+<% if local_assigns[:search_result] %>
+  <div class="bg-teal-100 p-3 my-2 rounded-md">
+    <strong class="block font-bold text-teal-800 mb-1">Search Result:</strong>
+    <%= link_to dish_or_drink.name, dish_or_drink, class: "text-teal-600 hover:underline" %>
+  </div>
+<% else %>
+  <div id="<%= dom_id dish_or_drink %>">
+    <p class="my-2 flex justify-between items-center">
+      <strong class="block font-bold text-teal-800 mb-1">Name:</strong>
+      <strong><%= dish_or_drink.name %></strong>
+    </p>
 
-  <p class="my-2 flex justify-between items-center">
-    <strong class="block font-bold text-teal-800 mb-1">Ingredients:</strong>
-    <%= dish_or_drink.ingredients %>
-  </p>
+    <p class="my-2 flex justify-between items-center">
+      <strong class="block font-bold text-teal-800 mb-1">Ingredients:</strong>
+      <%= dish_or_drink.ingredients %>
+    </p>
 
-  <p class="my-2 flex justify-between items-center">
-    <strong class="block font-bold text-teal-800 mb-1">Kcal per 100g:</strong>
-    <%= dish_or_drink.calories_in_hundred_g %>
-  </p>
+    <p class="my-2 flex justify-between items-center">
+      <strong class="block font-bold text-teal-800 mb-1">Kcal per 100g:</strong>
+      <%= dish_or_drink.calories_in_hundred_g %>
+    </p>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this dish or drink", dish_or_drink, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
-    <%= link_to "Edit this dish or drink", edit_dish_or_drink_path(dish_or_drink), class: "rounded-lg py-3 ml-2 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
-    <%= link_to "Delete this dish or drink", dish_or_drink, method: :delete, data: { confirm: "Are you sure?" }, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+    <% if action_name != "show" %>
+      <%= link_to "Show this dish or drink", dish_or_drink, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
+      <%= link_to "Edit this dish or drink", edit_dish_or_drink_path(dish_or_drink), class: "rounded-lg py-3 ml-2 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
+      <%= link_to "Delete this dish or drink", dish_or_drink, method: :delete, data: { confirm: "Are you sure?" }, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
+      <hr class="mt-6">
+    <% end %>
+  </div>
+<% end %>

@@ -5,7 +5,19 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl text-teal-800">Dishes or drinks</h1>
+<!--    <div class="mb-4">-->
+      <%#= form_tag(dish_or_drinks_path, method: :get, class: "flex items-center") do %>
+        <%#= text_field_tag(:search, params[:search], placeholder: "Search by name", class: "rounded-l-md p-2 w-64 border border-r-0 border-gray-300") %>
+        <%#= submit_tag("Search", class: "rounded-r-md p-2 bg-teal-800 text-amber-400 hover:bg-teal-600") %>
+      <%# end %>
+<!--    </div>-->
     <%= link_to "New dish or drink", new_dish_or_drink_path, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 block text-sm font-medium hover:bg-teal-600" %>
+  </div>
+  <div class="mb-4">
+    <%= form_tag(dish_or_drinks_path, method: :get, class: "flex items-center") do %>
+      <%= text_field_tag(:search, params[:search], placeholder: "Search by name", class: "rounded-l-md p-2 w-64 border border-r-0 border-gray-300") %>
+      <%= submit_tag("Search", class: "rounded-r-md p-2 bg-teal-800 text-amber-400 hover:bg-teal-600") %>
+    <% end %>
   </div>
   <%= will_paginate @dish_or_drinks, class: "text-teal-800 font-bold"%>
   <div id="dish_or_drinks" class="min-w-full">
