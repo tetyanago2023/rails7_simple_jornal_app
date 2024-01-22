@@ -21,6 +21,11 @@
     <%= form.text_area :ingredients, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+  <div class="my-5">
+    <%= form.label :calories_in_hundred_g, class: "text-teal-800 font-bold" %>
+    <%= form.text_field :calories_in_hundred_g, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer" %>
   </div>

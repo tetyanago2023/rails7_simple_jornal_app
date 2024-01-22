@@ -1,12 +1,17 @@
 <div id="<%= dom_id dish_or_drink%>">
-  <p class="my-2">
+  <p class="my-2 flex justify-between items-center">
     <strong class="block font-bold text-teal-800 mb-1">Name:</strong>
     <%= dish_or_drink.name %>
   </p>
 
-  <p class="my-2">
+  <p class="my-2 flex justify-between items-center">
     <strong class="block font-bold text-teal-800 mb-1">Ingredients:</strong>
     <%= dish_or_drink.ingredients %>
+  </p>
+
+  <p class="my-2 flex justify-between items-center">
+    <strong class="block font-bold text-teal-800 mb-1">Kcal per 100g:</strong>
+    <%= dish_or_drink.calories_in_hundred_g %>
   </p>
 
   <% if action_name != "show" %>
