@@ -16,9 +16,6 @@
   <% if params[:search].present? %>
     <%= link_to "Clear Search", dish_or_drinks_path, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
   <% end %>
-  <%# if params[:search].present? %>
-    <%#= button_to "Clear Search2222", dish_or_drinks_path, method: :get %>
-  <%# end %>
   <%= will_paginate @dish_or_drinks, class: "text-teal-800 font-bold"%>
   <div id="dish_or_drinks" class="min-w-full">
     <%= render @dish_or_drinks %>
