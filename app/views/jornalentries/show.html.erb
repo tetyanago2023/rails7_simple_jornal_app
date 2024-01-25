@@ -8,7 +8,7 @@
 
     <%= link_to "Edit this journalentry", edit_jornalentry_path(@jornalentry), class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to "Destroy this journalentry", jornalentry_path(@jornalentry), method: :delete, class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
+      <%= button_to "Delete this journalentry", jornalentry_path(@jornalentry), method: :delete, class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
     </div>
     <%= link_to "Back to journalentries", jornalentries_path, class: "rounded-lg bg-teal-800 border py-3 ml-2 px-4 text-amber-400 hover:bg-teal-600 inline-block text-sm font-medium" %>
   </div>

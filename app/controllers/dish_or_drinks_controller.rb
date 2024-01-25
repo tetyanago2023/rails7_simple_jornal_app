@@ -4,9 +4,9 @@ class DishOrDrinksController < ApplicationController
   # GET /dish_or_drinks or /dish_or_drinks.json
   def index
     if params[:search]
-      @dish_or_drinks = DishOrDrink.where("name ILIKE ?", "%#{params[:search]}%").order(name: :asc).paginate(page: params[:page], per_page: 3)
+      @dish_or_drinks = DishOrDrink.where("name ILIKE ?", "%#{params[:search]}%").order("LOWER(name) ASC").paginate(page: params[:page], per_page: 3)
     else
-      @dish_or_drinks = DishOrDrink.all.order(name: :asc).paginate(page: params[:page], per_page: 3)
+      @dish_or_drinks = DishOrDrink.all.order("LOWER(name) ASC").paginate(page: params[:page], per_page: 3)
     end
   end
 

@@ -46,7 +46,7 @@ describe "the jornalentries CRUD feature", type: :feature do
     jornalentry = create(:jornalentry)
     Capybara.using_driver(:selenium_chrome_headless) do
       visit "jornalentries/#{jornalentry.id}"
-      click_on "Destroy this journalentry", match: :first
+      click_on "Delete this journalentry", match: :first
       assert_text "Journalentry was successfully destroyed"
       page.save_and_open_screenshot(full: true)
     end

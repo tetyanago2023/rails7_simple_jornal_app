@@ -23,7 +23,7 @@
     <% if action_name != "show" %>
       <%= link_to "Show this dish or drink", dish_or_drink, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
       <%= link_to "Edit this dish or drink", edit_dish_or_drink_path(dish_or_drink), class: "rounded-lg py-3 ml-2 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
-      <%= link_to "Delete this dish or drink", dish_or_drink, method: :delete, data: { confirm: "Are you sure?" }, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
+      <%= link_to "Delete this dish or drink", dish_or_drink, method: :delete, data: {turbo_confirm: 'Are you sure?'}, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
       <hr class="mt-6">
     <% end %>
   </div>

@@ -40,7 +40,7 @@ class JornalentriesTest < ApplicationSystemTestCase
 
   test "should destroy Jornalentry" do
     visit jornalentry_url(@jornalentry)
-    click_on "Destroy this jornalentry", match: :first
+    click_on "Delete this jornalentry", match: :first
 
     assert_text "Jornalentry was successfully destroyed"
   end
