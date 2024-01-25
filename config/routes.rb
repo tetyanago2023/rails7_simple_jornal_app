@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :complex_dish_kitchens
   resources :dish_or_drinks
   root "jornalentries#index"
   resources :jornalentries

@@ -1,0 +1,22 @@
+<div id="<%= dom_id complex_dish_kitchen %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Complex dish name:</strong>
+    <%= complex_dish_kitchen.complex_dish_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Complex dish ingredients:</strong>
+    <%= complex_dish_kitchen.complex_dish_ingredients %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ingredient weight in gram:</strong>
+    <%= complex_dish_kitchen.ingredient_weight_in_gram %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this complex dish kitchen", complex_dish_kitchen, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this complex dish kitchen", edit_complex_dish_kitchen_path(complex_dish_kitchen), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_22_010029) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_25_013643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "complex_dish_kitchens", force: :cascade do |t|
+    t.string "complex_dish_name"
+    t.text "complex_dish_ingredients"
+    t.integer "ingredient_weight_in_gram"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "complex_dish_kitchens_dish_or_drinks", id: false, force: :cascade do |t|
+    t.bigint "complex_dish_kitchen_id", null: false
+    t.bigint "dish_or_drink_id", null: false
+    t.index ["complex_dish_kitchen_id", "dish_or_drink_id"], name: "index_cd_kitchen_do_drink", unique: true
+    t.index ["complex_dish_kitchen_id"], name: "idx_on_complex_dish_kitchen_id_e3a7e00d47"
+    t.index ["dish_or_drink_id", "complex_dish_kitchen_id"], name: "index_do_drink_cd_kitchen"
+    t.index ["dish_or_drink_id"], name: "index_complex_dish_kitchens_dish_or_drinks_on_dish_or_drink_id"
+  end
 
   create_table "dish_or_drinks", force: :cascade do |t|
     t.string "name"
