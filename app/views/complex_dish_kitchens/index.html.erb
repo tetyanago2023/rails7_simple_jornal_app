@@ -1,14 +1,24 @@
-<div class="w-full">
+<div class="mx-auto md:w-2/3 w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Complex dish kitchens</h1>
-    <%= link_to "New complex dish kitchen", new_complex_dish_kitchen_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl text-teal-800">Complex dish kitchens</h1>
+    <div class="mb-1">
+      <%= form_tag(complex_dish_kitchens_path, method: :get, class: "flex items-center") do %>
+        <%= text_field_tag(:search, params[:search], placeholder: "Search by name", class: "rounded-l-md p-2 w-64 border border-r-0 border-gray-300") %>
+        <%= submit_tag("Search", class: "rounded-r-md p-2 bg-teal-800 text-amber-400 hover:bg-teal-600") %>
+      <% end %>
+    </div>
+    <%= link_to "New complex dish kitchen", new_complex_dish_kitchen_path, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 block text-sm font-medium hover:bg-teal-600" %>
   </div>
-
+  <% if params[:search].present? %>
+    <%= link_to "Clear Search", complex_dish_kitchens_path, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
+  <% end %>
+  <%= will_paginate @complex_dish_kitchens, class: "text-teal-800 font-bold"%>
   <div id="complex_dish_kitchens" class="min-w-full">
     <%= render @complex_dish_kitchens %>
   </div>
+  <%= will_paginate @complex_dish_kitchens, class: "text-teal-800 font-bold"%>
 </div>

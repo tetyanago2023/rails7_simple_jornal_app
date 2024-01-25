@@ -4,12 +4,17 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl text-teal-800">Complex Dish Kitchen</h1>
+      <%= link_to "New complex dish kitchen", new_complex_dish_kitchen_path, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 block text-sm font-medium hover:bg-teal-600" %>
+    </div>
+
     <%= render @complex_dish_kitchen %>
 
-    <%= link_to "Edit this complex_dish_kitchen", edit_complex_dish_kitchen_path(@complex_dish_kitchen), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this complex_dish_kitchen", edit_complex_dish_kitchen_path(@complex_dish_kitchen), class: "mt-2 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to "Destroy this complex_dish_kitchen", complex_dish_kitchen_path(@complex_dish_kitchen), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to "Destroy this complex_dish_kitchen", complex_dish_kitchen_path(@complex_dish_kitchen), method: :delete, data: { confirm: "Are you sure?" }, class: "mt-2 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
     </div>
-    <%= link_to "Back to complex_dish_kitchens", complex_dish_kitchens_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Back to complex_dish_kitchens", complex_dish_kitchens_path, class: "mt-2 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
   </div>
 </div>

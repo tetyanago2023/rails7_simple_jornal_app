@@ -1,22 +1,30 @@
-<div id="<%= dom_id complex_dish_kitchen %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Complex dish name:</strong>
-    <%= complex_dish_kitchen.complex_dish_name %>
-  </p>
+<% if local_assigns[:search_result] %>
+  <div class="bg-teal-100 p-3 my-2 rounded-md">
+    <strong class="block font-bold text-teal-800 mb-1">Search Result:</strong>
+    <%= link_to complex_dish_kitchen.complex_dish_name, complex_dish_kitchen, class: "text-teal-600 hover:underline" %>
+  </div>
+<% else %>
+  <div id="<%= dom_id complex_dish_kitchen %>">
+    <p class="my-2 flex justify-between items-center">
+      <strong class="block font-bold text-teal-800 mb-1">Complex dish name:</strong>
+      <strong><%= complex_dish_kitchen.complex_dish_name %></strong>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Complex dish ingredients:</strong>
-    <%= complex_dish_kitchen.complex_dish_ingredients %>
-  </p>
+    <p class="my-2 flex justify-between items-center">
+      <strong class="block font-bold text-teal-800 mb-1">Complex dish ingredients:</strong>
+      <%= complex_dish_kitchen.complex_dish_ingredients %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Ingredient weight in gram:</strong>
-    <%= complex_dish_kitchen.ingredient_weight_in_gram %>
-  </p>
+    <p class="my-2 flex justify-between items-center">
+      <strong class="block font-bold text-teal-800 mb-1">Ingredient weight in gram:</strong>
+      <%= complex_dish_kitchen.ingredient_weight_in_gram %>
+    </p>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this complex dish kitchen", complex_dish_kitchen, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this complex dish kitchen", edit_complex_dish_kitchen_path(complex_dish_kitchen), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+    <% if action_name != "show" %>
+      <%= link_to "Show this complex dish kitchen", complex_dish_kitchen, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
+      <%= link_to "Edit this complex dish kitchen", edit_complex_dish_kitchen_path(complex_dish_kitchen), class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
+      <%= link_to "Delete this dish or drink", complex_dish_kitchen, method: :delete, data: { confirm: "Are you sure?" }, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
+      <hr class="mt-6">
+    <% end %>
+  </div>
+<% end %>

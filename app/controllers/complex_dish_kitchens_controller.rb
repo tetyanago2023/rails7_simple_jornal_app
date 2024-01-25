@@ -3,7 +3,11 @@ class ComplexDishKitchensController < ApplicationController
 
   # GET /complex_dish_kitchens or /complex_dish_kitchens.json
   def index
-    @complex_dish_kitchens = ComplexDishKitchen.all
+    if params[:search]
+      @complex_dish_kitchens = ComplexDishKitchen.where("complex_dish_name ILIKE ?", "%#{params[:search]}%").order(complex_dish_name: :asc).paginate(page: params[:page], per_page: 3)
+    else
+      @complex_dish_kitchens = ComplexDishKitchen.all.order(complex_dish_name: :asc).paginate(page: params[:page], per_page: 3)
+    end
   end
 
   # GET /complex_dish_kitchens/1 or /complex_dish_kitchens/1.json
