@@ -1,0 +1,27 @@
+<div id="<%= dom_id ingredient %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ingredient name:</strong>
+    <%= ingredient.ingredient_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ingredient weight:</strong>
+    <%= ingredient.ingredient_weight %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ingredient calorie per 100g:</strong>
+    <%= ingredient.ingredient_calorie_per_100g %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Complex dish kitchen:</strong>
+    <%= ingredient.complex_dish_kitchen_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this ingredient", ingredient, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this ingredient", edit_ingredient_path(ingredient), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

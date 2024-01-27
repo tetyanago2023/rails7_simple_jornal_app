@@ -17,14 +17,19 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :complex_dish_ingredients, class: "text-teal-800 font-bold" %>
-    <%= form.text_area :complex_dish_ingredients, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :complex_dish_calories, class: "text-teal-800 font-bold" %>
+    <%= form.text_field :complex_dish_calories, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :ingredient_weight_in_gram, class: "text-teal-800 font-bold" %>
-    <%= form.number_field :ingredient_weight_in_gram, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+<!--  <div class="my-5">-->
+    <%#= form.label :complex_dish_ingredients, class: "text-teal-800 font-bold" %>
+    <%#= form.text_area :complex_dish_ingredients, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+<!--  </div>-->
+
+<!--  <div class="my-5">-->
+    <%#= form.label :ingredient_weight_in_gram, class: "text-teal-800 font-bold" %>
+    <%#= form.number_field :ingredient_weight_in_gram, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+<!--  </div>-->
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer" %>

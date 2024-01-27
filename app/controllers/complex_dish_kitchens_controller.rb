@@ -69,6 +69,6 @@ class ComplexDishKitchensController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def complex_dish_kitchen_params
-      params.require(:complex_dish_kitchen).permit(:complex_dish_name, :complex_dish_ingredients, :ingredient_weight_in_gram)
+      params.require(:complex_dish_kitchen).permit(:complex_dish_name, :complex_dish_calories)
     end
 end

@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_25_013643) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_26_030437) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "complex_dish_kitchens", force: :cascade do |t|
     t.string "complex_dish_name"
-    t.text "complex_dish_ingredients"
-    t.integer "ingredient_weight_in_gram"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "complex_dish_calories"
   end
 
   create_table "complex_dish_kitchens_dish_or_drinks", id: false, force: :cascade do |t|
@@ -37,6 +36,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_013643) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "calories_in_hundred_g"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "ingredient_name"
+    t.integer "ingredient_weight"
+    t.integer "ingredient_calorie_per_100g"
+    t.bigint "complex_dish_kitchen_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["complex_dish_kitchen_id"], name: "index_ingredients_on_complex_dish_kitchen_id"
   end
 
   create_table "jornalentries", force: :cascade do |t|
@@ -60,5 +69,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_013643) do
     t.index ["jornalentry_id"], name: "index_jornalentries_dish_or_drinks_on_jornalentry_id"
   end
 
+  add_foreign_key "ingredients", "complex_dish_kitchens"
   add_foreign_key "jornalentries", "dish_or_drinks"
 end
