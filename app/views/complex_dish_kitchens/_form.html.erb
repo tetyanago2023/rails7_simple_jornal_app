@@ -27,29 +27,35 @@
 <%# end %>
 
 
-<%= form_with(model: @complex_dish_kitchen, local: true) do |form| %>
-  <%= form.label :complex_dish_name %>
-  <%= form.text_field :complex_dish_name %>
+<%= form_with(model: @complex_dish_kitchen, local: true, class: "contents") do |form| %>
+  <div class="my-5">
+    <%= form.label :complex_dish_name %>
+    <%= form.text_field :complex_dish_name %>
+  </div>
 
+  <div class="nested-fields">
   <%= form.fields_for :ingredients do |ingredient_form| %>
-    <%#= render 'complex_dish_kitchens/ingredient_fields', f: ingredient_form %>
+      <div class="my-5">
+        <%= ingredient_form.label :ingredient_name, class: "text-teal-800 font-bold" %>
+        <%= ingredient_form.text_field :ingredient_name %>
+      </div>
 
-<!--    <div class="nested-fields">-->
-      <%= ingredient_form.label :ingredient_name %>
-      <%= ingredient_form.text_field :ingredient_name %>
+      <div class="my-5">
+        <%= ingredient_form.label :ingredient_weight, class: "text-teal-800 font-bold" %>
+        <%= ingredient_form.number_field :ingredient_weight %>
+      </div>
 
-      <%= ingredient_form.label :ingredient_weight %>
-      <%= ingredient_form.number_field :ingredient_weight %>
-
-      <%= ingredient_form.label :ingredient_calorie_per_100g %>
-      <%= ingredient_form.number_field :ingredient_calorie_per_100g %>
+      <div class="my-5">
+        <%= ingredient_form.label :ingredient_calorie_per_100g, class: "text-teal-800 font-bold" %>
+        <%= ingredient_form.number_field :ingredient_calorie_per_100g %>
+      </div>
 
       <%= link_to_remove_fields 'Remove Ingredient', ingredient_form %>
-<!--    </div>-->
-
   <% end %>
-
+  </div>
   <%= link_to_add_fields 'Add Ingredient', form, :ingredients %>
 
-  <%= form.submit %>
+  <div class="inline">
+    <%= form.submit %>
+  </div>
 <% end %>

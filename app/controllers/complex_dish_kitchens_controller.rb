@@ -1,5 +1,6 @@
 class ComplexDishKitchensController < ApplicationController
-  helper ApplicationHelper
+  # helper ApplicationHelper
+  helper ComplexDishKitchensHelper
 
   before_action :set_complex_dish_kitchen, only: %i[ show edit update destroy ]
 
@@ -86,5 +87,4 @@ class ComplexDishKitchensController < ApplicationController
   def complex_dish_kitchen_params
     params.require(:complex_dish_kitchen).permit(:complex_dish_name, :complex_dish_calories, ingredients_attributes: [:id, :ingredient_name, :ingredient_weight, :ingredient_calorie_per_100g, :_destroy])
   end
-
 end
