@@ -65,6 +65,7 @@ class IngredientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ingredient_params
-      params.require(:ingredient).permit(:ingredient_name, :ingredient_weight, :ingredient_calorie_per_100g, :complex_dish_kitchen_id)
+      # params.require(:ingredient).permit(:ingredient_name, :ingredient_weight, :ingredient_calorie_per_100g, :complex_dish_kitchen_id)
+      params.require(:ingredient).permit(:ingredient_name, :ingredient_weight, :ingredient_calorie_per_100g)
     end
 end

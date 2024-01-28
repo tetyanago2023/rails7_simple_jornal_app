@@ -72,3 +72,5 @@ end
 
 gem "tailwindcss-rails", "~> 2.1"
 gem 'will_paginate', '~> 4.0'
+gem 'vanilla_nested'
+

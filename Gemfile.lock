@@ -253,6 +253,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    vanilla_nested (1.7.1)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -291,6 +292,7 @@ DEPENDENCIES
   tailwindcss-rails (~> 2.1)
   turbo-rails
   tzinfo-data
+  vanilla_nested
   web-console
   will_paginate (~> 4.0)
 

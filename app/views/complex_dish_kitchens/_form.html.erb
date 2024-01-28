@@ -1,27 +1,55 @@
-<%= form_with(model: complex_dish_kitchen, class: "contents") do |form| %>
-  <% if complex_dish_kitchen.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(complex_dish_kitchen.errors.count, "error") %> prohibited this complex_dish_kitchen from being saved:</h2>
+<%#= form_with(model: complex_dish_kitchen, class: "contents") do |form| %>
+  <%# if complex_dish_kitchen.errors.any? %>
+<!--    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">-->
+<!--      <h2><%#= pluralize(complex_dish_kitchen.errors.count, "error") %> prohibited this complex_dish_kitchen from being saved:</h2>-->
 
-      <ul>
-        <% complex_dish_kitchen.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+<!--      <ul>-->
+        <%# complex_dish_kitchen.errors.each do |error| %>
+<!--          <li><%#= error.full_message %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+
+<!--  <div class="my-5">-->
+    <%#= form.label :complex_dish_name, class: "text-teal-800 font-bold" %>
+    <%#= form.text_field :complex_dish_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+<!--  </div>-->
+
+<!--  <div class="my-5">-->
+    <%#= form.label :complex_dish_calories, class: "text-teal-800 font-bold" %>
+    <%#= form.text_field :complex_dish_calories, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+<!--  </div>-->
+
+<!--  <div class="inline">-->
+    <%#= form.submit class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer" %>
+<!--  </div>-->
+<%# end %>
+
+
+<%= form_with(model: @complex_dish_kitchen, local: true) do |form| %>
+  <%= form.label :complex_dish_name %>
+  <%= form.text_field :complex_dish_name %>
+
+  <%= form.fields_for :ingredients do |ingredient_form| %>
+    <%#= render 'complex_dish_kitchens/ingredient_fields', f: ingredient_form %>
+
+<!--    <div class="nested-fields">-->
+      <%= ingredient_form.label :ingredient_name %>
+      <%= ingredient_form.text_field :ingredient_name %>
+
+      <%= ingredient_form.label :ingredient_weight %>
+      <%= ingredient_form.number_field :ingredient_weight %>
+
+      <%= ingredient_form.label :ingredient_calorie_per_100g %>
+      <%= ingredient_form.number_field :ingredient_calorie_per_100g %>
+
+      <%= link_to_remove_fields 'Remove Ingredient', ingredient_form %>
+<!--    </div>-->
+
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :complex_dish_name, class: "text-teal-800 font-bold" %>
-    <%= form.text_field :complex_dish_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+  <%= link_to_add_fields 'Add Ingredient', form, :ingredients %>
 
-  <div class="my-5">
-    <%= form.label :complex_dish_calories, class: "text-teal-800 font-bold" %>
-    <%= form.text_field :complex_dish_calories, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer" %>
-  </div>
+  <%= form.submit %>
 <% end %>
