@@ -12,3 +12,6 @@ application.register("jornalentries", JornalentriesController)
 
 import SlimController from "./slim_controller"
 application.register("slim", SlimController)
+
+import NestedFieldsController from "./nested_fields_controller"
+application.register("nested-fields", NestedFieldsController)
