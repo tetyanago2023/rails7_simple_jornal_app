@@ -35,6 +35,7 @@
 
   <div class="nested-fields">
   <%= form.fields_for :ingredients do |ingredient_form| %>
+      <% puts "Entering fields_for loop" %>
       <div class="my-5">
         <%= ingredient_form.label :ingredient_name, class: "text-teal-800 font-bold" %>
         <%= ingredient_form.text_field :ingredient_name %>

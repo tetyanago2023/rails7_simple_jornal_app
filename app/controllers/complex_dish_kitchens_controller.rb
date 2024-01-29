@@ -18,8 +18,13 @@ class ComplexDishKitchensController < ApplicationController
   end
 
   # GET /complex_dish_kitchens/new
+  # def new
+  #   @complex_dish_kitchen = ComplexDishKitchen.new
+  # end
+
   def new
     @complex_dish_kitchen = ComplexDishKitchen.new
+    @complex_dish_kitchen.ingredients.build
   end
 
   # GET /complex_dish_kitchens/1/edit
