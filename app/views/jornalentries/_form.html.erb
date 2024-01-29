@@ -27,7 +27,7 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :dish_or_drink_ids, style: "display: block" %>
+    <%= form.label :dish_or_drink, style: "display: block" %>
     <%= form.select :dish_or_drink_ids, DishOrDrink.pluck(:name, :id).sort, {}, { multiple: true, data: {controller: 'slim'}}%>
   </div>
 
