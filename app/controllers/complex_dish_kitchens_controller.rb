@@ -11,6 +11,8 @@ class ComplexDishKitchensController < ApplicationController
     else
       @complex_dish_kitchens = ComplexDishKitchen.all.order("LOWER(complex_dish_name) ASC").paginate(page: params[:page], per_page: 3)
     end
+
+    puts "@complex_dish_kitchens: #{@complex_dish_kitchens.inspect}"
   end
 
   # GET /complex_dish_kitchens/1 or /complex_dish_kitchens/1.json
