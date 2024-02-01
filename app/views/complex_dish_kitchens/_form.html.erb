@@ -29,8 +29,8 @@
 
 <%= form_with(model: @complex_dish_kitchen, local: true, class: "contents") do |form| %>
   <div class="my-5">
-    <%= form.label :complex_dish_name %>
-    <%= form.text_field :complex_dish_name %>
+    <%= form.label :complex_dish_name, class: "text-teal-800 font-bold" %>
+    <%= form.text_field :complex_dish_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <p class="nested-fields">
@@ -38,27 +38,33 @@
       <% puts "Entering fields_for loop" %>
       <div class="my-5">
         <%= ingredient_form.label :ingredient_name, class: "text-teal-800 font-bold" %>
-        <%= ingredient_form.text_field :ingredient_name %>
+        <%= ingredient_form.text_field :ingredient_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
       <div class="my-5">
         <%= ingredient_form.label :ingredient_weight, class: "text-teal-800 font-bold" %>
-        <%= ingredient_form.number_field :ingredient_weight %>
+        <%= ingredient_form.number_field :ingredient_weight, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
       <div class="my-5">
         <%= ingredient_form.label :ingredient_calorie_per_100g, class: "text-teal-800 font-bold" %>
-        <%= ingredient_form.number_field :ingredient_calorie_per_100g %>
+        <%= ingredient_form.number_field :ingredient_calorie_per_100g, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
-      <%= ingredient_form.check_box :_destroy %>
-      <%= ingredient_form.label :_destroy, "Remove Ingredient_rails" %>
-      <%= link_to_remove_fields 'Remove Ingredient', ingredient_form %>
+      <div class="my-5 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600">
+          <%= ingredient_form.check_box :_destroy %>
+          <%= ingredient_form.label :_destroy, "Remove Ingredient_rails" %>
+      </div>
+      <div class="my-5 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600">
+          <%= link_to_remove_fields 'Remove Ingredient', ingredient_form %>
+      </div>
   <% end %>
+      <div class="my-5 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600">
+          <%= link_to_add_fields 'Add Ingredient', form, :ingredients %>
+      </div>
   </p>
-  <%= link_to_add_fields 'Add Ingredient', form, :ingredients %>
 
   <div class="inline">
-    <%= form.submit %>
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600" %>
   </div>
 <% end %>

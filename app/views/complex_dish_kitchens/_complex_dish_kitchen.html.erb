@@ -5,19 +5,27 @@
   </div>
 <% else %>
   <div id="<%= dom_id complex_dish_kitchen %>">
-    <p class="my-2 flex justify-between items-center">
-      <strong class="block font-bold text-teal-800 mb-1">Complex dish name:</strong>
+    <p class="my-1 flex justify-between items-center">
+      <strong class="block font-bold text-teal-800">Complex dish name:</strong>
       <strong><%= complex_dish_kitchen.complex_dish_name %></strong>
     </p>
-    <ol class="ingredients">
-      <% complex_dish_kitchen.ingredients.each do |ingredient| %>
-        <li>
-          <%= ingredient.ingredient_name %>
-          <%= ingredient.ingredient_weight %>
-          <%= ingredient.ingredient_calorie_per_100g %>
-        </li>
-      <% end %>
-    </ol>
+
+      <ol>
+        <% complex_dish_kitchen.ingredients.each do |ingredient| %>
+          <li>
+            <p class="my-1 flex justify-between items-center">
+              <strong class="font-bold text-teal-800 mb-1">Ingredient Name: </strong><%= ingredient.ingredient_name %>
+            </p>
+            <p class="my-1 flex justify-between items-center">
+              <strong class="font-bold text-teal-800 mb-1">Ingredient weight: </strong><%= ingredient.ingredient_weight %>
+            </p>
+              <p class="my-1 flex justify-between items-center">
+            <strong class="font-bold text-teal-800 mb-1">Ingedient Calories per 100: </strong>g<%= ingredient.ingredient_calorie_per_100g %>
+            </p>
+          </li>
+        <% end %>
+      </ol>
+
 
 
 <!--    <p class="my-2 flex justify-between items-center">-->
