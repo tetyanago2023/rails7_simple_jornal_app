@@ -9,7 +9,8 @@
       <strong class="block font-bold text-teal-800">Complex dish name:</strong>
       <strong><%= complex_dish_kitchen.complex_dish_name %></strong>
     </p>
-
+    <p>
+<!--      <strong class="font-bold text-teal-800 mb-1">Ingredients:</strong>-->
       <ol>
         <% complex_dish_kitchen.ingredients.each do |ingredient| %>
           <li>
@@ -20,18 +21,12 @@
               <strong class="font-bold text-teal-800 mb-1">Ingredient weight: </strong><%= ingredient.ingredient_weight %>
             </p>
               <p class="my-1 flex justify-between items-center">
-            <strong class="font-bold text-teal-800 mb-1">Ingedient Calories per 100: </strong>g<%= ingredient.ingredient_calorie_per_100g %>
+            <strong class="font-bold text-teal-800 mb-1">Ingredient Calories per 100: </strong><%= ingredient.ingredient_calorie_per_100g %>
             </p>
           </li>
         <% end %>
       </ol>
-
-
-
-<!--    <p class="my-2 flex justify-between items-center">-->
-<!--      <strong class="block font-bold text-teal-800 mb-1">Complex dish calories:</strong>-->
-<!--      <strong><%#= complex_dish_kitchen.complex_dish_calories %></strong>-->
-<!--    </p>-->
+    </p>
 
     <% if action_name != "show" %>
       <%= link_to "Show this complex dish kitchen", complex_dish_kitchen, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>

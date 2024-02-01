@@ -1,68 +1,77 @@
-<%#= form_with(model: complex_dish_kitchen, class: "contents") do |form| %>
-  <%# if complex_dish_kitchen.errors.any? %>
-<!--    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">-->
-<!--      <h2><%#= pluralize(complex_dish_kitchen.errors.count, "error") %> prohibited this complex_dish_kitchen from being saved:</h2>-->
+<%= form_with(model: @complex_dish_kitchen,
+              data: {
+                controller: "nested-form",
+                nested_form_wrapper_selector_value: '.nested-form-wrapper'
+              }, local: true, class: "contents") do |form| %>
+  <% if @complex_dish_kitchen.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(complex_dish_kitchen.errors.count, "error") %> prohibited this complex diss from being saved:</h2>
+      <ul>
+        <% @complex_dish_kitchen.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<!--      <ul>-->
-        <%# complex_dish_kitchen.errors.each do |error| %>
-<!--          <li><%#= error.full_message %></li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--    </div>-->
-  <%# end %>
-
-<!--  <div class="my-5">-->
-    <%#= form.label :complex_dish_name, class: "text-teal-800 font-bold" %>
-    <%#= form.text_field :complex_dish_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-<!--  </div>-->
-
-<!--  <div class="my-5">-->
-    <%#= form.label :complex_dish_calories, class: "text-teal-800 font-bold" %>
-    <%#= form.text_field :complex_dish_calories, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-<!--  </div>-->
-
-<!--  <div class="inline">-->
-    <%#= form.submit class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer" %>
-<!--  </div>-->
-<%# end %>
-
-
-<%= form_with(model: @complex_dish_kitchen, local: true, class: "contents") do |form| %>
   <div class="my-5">
     <%= form.label :complex_dish_name, class: "text-teal-800 font-bold" %>
     <%= form.text_field :complex_dish_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <p class="nested-fields">
-  <%= form.fields_for :ingredients do |ingredient_form| %>
+  <%# Start Custom Logic Here %>
+  <template data-nested-form-target="template">
+    <%= form.fields_for :ingredients, Ingredient.new, child_index: "NEW_RECORD" do |ingredient_fields| %>
+      <%#= render "complex_dish_kitchens/complex_dish_kitchen_ingredient_form", f: ingredient_fields %>
+      <div class="nested-form-wrapper" data-new-record="<%= ingredient_fields.object.new_record? %>">
+        <div class="my-5 ml-10">
+          <%= ingredient_fields.label :ingredient_name, class: "text-teal-800 font-bold" %>
+          <%= ingredient_fields.text_field :ingredient_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        </div>
+
+        <div class="my-5 ml-10">
+          <%= ingredient_fields.label :ingredient_weight, class: "text-teal-800 font-bold" %>
+          <%= ingredient_fields.number_field :ingredient_weight, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        </div>
+
+        <div class="my-5 ml-10">
+          <%= ingredient_fields.label :ingredient_calorie_per_100g, class: "text-teal-800 font-bold" %>
+          <%= ingredient_fields.number_field :ingredient_calorie_per_100g, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        </div>
+        <button type="button" data-action="nested-form#remove">Remove ingredient</button>
+        <%= ingredient_fields.hidden_field :_destroy %>
+      </div>
+    <% end %>
+  </template>
+  <%= form.fields_for :ingredients do |ingredient_fields| %>
       <% puts "Entering fields_for loop" %>
-      <div class="my-5">
-        <%= ingredient_form.label :ingredient_name, class: "text-teal-800 font-bold" %>
-        <%= ingredient_form.text_field :ingredient_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%#= render "complex_dish_kitchens/complex_dish_kitchen_ingredient_form", f: ingredient_fields %>
+    <div class="nested-form-wrapper" data-new-record="<%= ingredient_fields.object.new_record? %>">
+      <div class="my-5 ml-10">
+        <%= ingredient_fields.label :ingredient_name, class: "text-teal-800 font-bold" %>
+        <%= ingredient_fields.text_field :ingredient_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
-      <div class="my-5">
-        <%= ingredient_form.label :ingredient_weight, class: "text-teal-800 font-bold" %>
-        <%= ingredient_form.number_field :ingredient_weight, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <div class="my-5 ml-10">
+        <%= ingredient_fields.label :ingredient_weight, class: "text-teal-800 font-bold" %>
+        <%= ingredient_fields.number_field :ingredient_weight, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
-      <div class="my-5">
-        <%= ingredient_form.label :ingredient_calorie_per_100g, class: "text-teal-800 font-bold" %>
-        <%= ingredient_form.number_field :ingredient_calorie_per_100g, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <div class="my-5 ml-10">
+        <%= ingredient_fields.label :ingredient_calorie_per_100g, class: "text-teal-800 font-bold" %>
+        <%= ingredient_fields.number_field :ingredient_calorie_per_100g, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
-
-      <div class="my-5 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600">
-          <%= ingredient_form.check_box :_destroy %>
-          <%= ingredient_form.label :_destroy, "Remove Ingredient_rails" %>
-      </div>
-      <div class="my-5 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600">
-          <%= link_to_remove_fields 'Remove Ingredient', ingredient_form %>
-      </div>
+      <button type="button" data-action="nested-form#remove">Remove ingredient</button>
+      <%= ingredient_fields.hidden_field :_destroy %>
+    </div>
   <% end %>
-      <div class="my-5 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600">
-          <%= link_to_add_fields 'Add Ingredient', form, :ingredients %>
-      </div>
-  </p>
+
+    <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
+  <div class="my-5 rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600">
+    <button type="button" data-action="nested-form#add" >Add Ingredient</button>
+  </div>
+<%# End Custom Logic %>
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 inline-block font-medium cursor-pointer hover:bg-teal-600" %>
