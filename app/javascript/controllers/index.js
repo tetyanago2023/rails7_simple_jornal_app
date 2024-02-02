@@ -12,3 +12,6 @@ application.register("jornalentries", JornalentriesController)
 
 import SlimController from "./slim_controller"
 application.register("slim", SlimController)
+
+import NestedForm from 'stimulus-rails-nested-form'
+application.register('nested-form', NestedForm)
