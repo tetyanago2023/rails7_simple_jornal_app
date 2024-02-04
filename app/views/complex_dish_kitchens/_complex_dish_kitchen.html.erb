@@ -28,6 +28,11 @@
       </ol>
     </p>
 
+    <p class="my-1 flex justify-between items-center">
+      <strong class="block font-bold text-teal-800">Complex dish calories:</strong>
+      <strong><%= complex_dish_kitchen.complex_dish_calories %></strong>
+    </p>
+
     <% if action_name != "show" %>
       <%= link_to "Show this complex dish kitchen", complex_dish_kitchen, class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>
       <%= link_to "Edit this complex dish kitchen", edit_complex_dish_kitchen_path(complex_dish_kitchen), class: "rounded-lg py-3 px-5 bg-teal-800 text-amber-400 hover:bg-teal-600 inline-block font-medium" %>

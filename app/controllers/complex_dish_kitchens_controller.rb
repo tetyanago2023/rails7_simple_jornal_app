@@ -35,6 +35,8 @@ class ComplexDishKitchensController < ApplicationController
   def create
     @complex_dish_kitchen = ComplexDishKitchen.new(complex_dish_kitchen_params)
 
+    @complex_dish_kitchen.complex_dish_calories = @complex_dish_kitchen.total_calories
+
     respond_to do |format|
       if @complex_dish_kitchen.save
         format.turbo_stream do
@@ -58,6 +60,8 @@ class ComplexDishKitchensController < ApplicationController
   def update
     respond_to do |format|
       if @complex_dish_kitchen.update(complex_dish_kitchen_params)
+        @complex_dish_kitchen.complex_dish_calories = @complex_dish_kitchen.total_calories
+
         format.html { redirect_to complex_dish_kitchen_url(@complex_dish_kitchen), notice: "Complex dish kitchen was successfully updated." }
         format.json { render :show, status: :ok, location: @complex_dish_kitchen }
       else

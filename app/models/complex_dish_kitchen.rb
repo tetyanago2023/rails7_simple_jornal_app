@@ -16,6 +16,7 @@ class ComplexDishKitchen < ApplicationRecord
     end
 
     total_calories.round(2) # Round the total calories to 2 decimal places
+    update(complex_dish_calories: total_calories) # Add this line to update the attribute
+    total_calories.round(2)
   end
 end
-
